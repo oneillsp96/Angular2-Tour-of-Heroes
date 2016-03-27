@@ -1,4 +1,6 @@
-System.register(['angular2/core', './hero.service', './heroes.component', 'angular2/router'], function(exports_1) {
+System.register(['angular2/core', './hero.service', './heroes.component', './dashboard.component', './hero-detail.component', 'angular2/router'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +10,7 @@ System.register(['angular2/core', './hero.service', './heroes.component', 'angul
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_service_1, heroes_component_1, router_1;
+    var core_1, hero_service_1, heroes_component_1, dashboard_component_1, hero_detail_component_1, router_1;
     var AppComponent;
     return {
         setters:[
@@ -21,6 +23,12 @@ System.register(['angular2/core', './hero.service', './heroes.component', 'angul
             function (heroes_component_1_1) {
                 heroes_component_1 = heroes_component_1_1;
             },
+            function (dashboard_component_1_1) {
+                dashboard_component_1 = dashboard_component_1_1;
+            },
+            function (hero_detail_component_1_1) {
+                hero_detail_component_1 = hero_detail_component_1_1;
+            },
             function (router_1_1) {
                 router_1 = router_1_1;
             }],
@@ -32,7 +40,7 @@ System.register(['angular2/core', './hero.service', './heroes.component', 'angul
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <a [routerLink]=\"['Heroes']\">Heroes</a>\n    <router-outlet></router-outlet>\n  ",
+                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n    <a [routerLink]=\"['Heroes']\">Heroes</a>\n    <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
                         directives: [heroes_component_1.HeroesComponent, router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
@@ -40,17 +48,17 @@ System.register(['angular2/core', './hero.service', './heroes.component', 'angul
                         ]
                     }),
                     router_1.RouteConfig([
-                        //   {
-                        //     path: '/dashboard',
-                        //     name: 'Dashboard',
-                        //     component: DashboardComponent,
-                        //     useAsDefault: true
-                        //   },
-                        //   {
-                        //     path: '/detail/:id',
-                        //     name: 'HeroDetail',
-                        //     component: HeroDetailComponent
-                        //   },
+                        {
+                            path: '/dashboard',
+                            name: 'Dashboard',
+                            component: dashboard_component_1.DashboardComponent,
+                            useAsDefault: true
+                        },
+                        {
+                            path: '/detail/:id',
+                            name: 'HeroDetail',
+                            component: hero_detail_component_1.HeroDetailComponent
+                        },
                         {
                             path: '/heroes',
                             name: 'Heroes',
@@ -60,7 +68,7 @@ System.register(['angular2/core', './hero.service', './heroes.component', 'angul
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
-            })();
+            }());
             exports_1("AppComponent", AppComponent);
         }
     }
