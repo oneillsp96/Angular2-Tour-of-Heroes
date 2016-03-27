@@ -41,6 +41,7 @@ System.register(['angular2/core', './hero.service', './heroes.component', './das
                     core_1.Component({
                         selector: 'my-app',
                         template: "\n    <h1>{{title}}</h1>\n    <nav>\n    <a [routerLink]=\"['Heroes']\">Heroes</a>\n    <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+                        styleUrls: ['app/app.component.css'],
                         directives: [heroes_component_1.HeroesComponent, router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
